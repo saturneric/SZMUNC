@@ -1,0 +1,65 @@
+
+<%
+var pageTitle = page.title || config.subtitle || '';
+if (is_archive()) pageTitle = 'Archives';
+if (is_tag()) pageTitle = 'Tag: ' + page.tag;
+if (is_category()) pageTitle = 'Category: ' + page.category;
+if (is_month()) pageTitle += ': ' + page.month + '/' + page.year;
+if (is_year()) pageTitle += ': ' + page.year;
+pageTitle += ' [ ' + config.title + ' ]';
+%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="<%=config.language%>" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" http-equiv="Content-Type" content="text/html>
+  <title><%=pageTitle%></title>
+  <% if (theme.stylesheets !== undefined && theme.stylesheets.length > 0) { %>
+    <!-- stylesheets list from config.yml -->
+    <% theme.stylesheets.forEach(function(url) { %>
+      <link rel="stylesheet" href="<%=url%>">
+    <% }); %>
+  <% } %>
+  <link href='http://fonts.useso.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">  
+    <!-- Optional theme -->
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet/less" type="text/css" href="/style.less" />
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+     <script src="/js/bootstrap.min.js" type="text/javascript" ></script>
+     <script src="/js/jquery.smint.js" type="text/javascript" ></script>
+     <script type="text/javascript" src="/js/jquery.easing.min.js"></script>
+     <script type="text/javascript" src="/js/jquery.easy-ticker.js"></script>
+     <script src="/less.js" type="text/javascript"></script>
+     <script src="/js/isotop.js"></script>
+     <script src="/js/jquery.colorbox.js"></script>
+</head>
+<body>
+
+<div id="content-outer">
+  <div id="content-inner">
+    <%- body %>
+  </div>
+</div>
+
+<div id="bottom-outer" class="about-artical">
+  <div id="bottom-inner">
+    本站由 <%=config.author%> 建设
+    属于 <a href="/">SZMUNC 2017</a>.
+    <br>
+  </div>
+</div>
+
+<% if (theme.scripts !== undefined && theme.scripts.length > 0) { %>
+  <!-- scripts list from theme config.yml -->
+  <% theme.scripts.forEach(function(url) { %>
+    <script src="<%=url%>"></script>
+  <% }); %>
+<% } %>
+
+</body>
+</html>

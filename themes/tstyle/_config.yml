@@ -1,0 +1,19 @@
+
+# html lang
+language: en
+
+# main menu navigation
+menu:
+  Home: /
+
+# Miscelaneous
+favicon: /favicon.ico
+
+# stylesheets loaded in the <head>
+stylesheets:
+- /css/tstyle.css
+
+# scripts loaded in the end of the body
+scripts:
+- /js/tstyle.js
+
